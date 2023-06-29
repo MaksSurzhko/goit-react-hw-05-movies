@@ -1,37 +1,35 @@
-// import React from "react"
-
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-      
-//     </div>
-//   );
-// };
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from '../components/home/Home';
+// import Home from './Pages/Home/Home';
+import { Layout } from './Layout/Layout';
+// import Movies from './Pages/Movies/Movies';
+// import MovieDetails from './Pages/MoviesDetails/MovieDetails';
+import { Cast } from "./cast/Cast"
+import { Reviews } from './reviews/Reviews';
+import { lazy } from 'react';
+
+
+const Home = lazy(() => import('./Pages/Home/Home'));
+const Movies = lazy(() => import('./Pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('./Pages/MoviesDetails/MovieDetails'));
+
 
 export const App = () => {
   return (
   <div>
   <Routes>
-      <Route path="/" element={<Home/>} />
-    </Routes>
-    </div>
+    
+   <Route path="/" element={<Layout/>} >
+     <Route index element={<Home/>} />
+     <Route path="movie" element={<Movies />} />
+     <Route path="movies/:movieId" element={<MovieDetails />}>
+       <Route path='cast' element={<Cast />} />
+       <Route path="reviews" element={<Reviews />} />
+     </Route>
+   </Route>
+  </Routes>
+  </div>
   )
 };
-
-
 
 
