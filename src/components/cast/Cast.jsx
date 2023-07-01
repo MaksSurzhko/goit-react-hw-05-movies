@@ -40,3 +40,56 @@ export const Cast = () => {
   );
 };
 
+
+// import { useState, useEffect } from 'react';
+// import { useParams, useHistory } from 'react-router-dom';
+// import { getCast } from 'components/Api/Api';
+
+// export const Cast = () => {
+//   const { movieId } = useParams();
+//   const [casts, setCasts] = useState([]);
+//   const [error, setError] = useState(null);
+//   const history = useHistory();
+
+//   useEffect(() => {
+//     const fetchCast = async () => {
+//       try {
+//         const data = await getCast(movieId);
+//         const casts = data.cast;
+
+//         if (!casts.length) {
+//           setError('There is no cast list');
+//         }
+
+//         setCasts(casts);
+//       } catch (error) {
+//         setError(error.message);
+//       }
+//     };
+
+//     fetchCast();
+//   }, [movieId]);
+
+//   const handleGoBack = () => {
+//     history.goBack(); // Go back to the previous page
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={handleGoBack}>Go Back</button>
+//       {error && <p>Error: {error}</p>}
+//       <ul>
+//         {casts.map((cast) => (
+//           <li key={cast.id}>
+//             <img
+//               src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
+//               alt={cast.name}
+//             />
+//             <p>Name: {cast.name}</p>
+//             <p>Character: {cast.character}</p>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };

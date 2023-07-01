@@ -13,7 +13,6 @@ const Home = lazy(() => import('./Pages/Home/Home'));
 const Movies = lazy(() => import('./Pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('./Pages/MoviesDetails/MovieDetails'));
 
-
 export const App = () => {
   return (
   <div>
